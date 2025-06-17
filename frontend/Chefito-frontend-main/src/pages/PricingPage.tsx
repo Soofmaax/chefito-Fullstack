@@ -73,7 +73,6 @@ const PricingPage: React.FC = () => {
     });
     
     // In a real app, this would redirect to payment or signup
-    console.log(`Selected plan: ${planName}`);
   };
 
   const getIconColor = (color: string) => {

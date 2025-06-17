@@ -62,7 +62,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         .single();
 
       if (error) {
-        console.error('Error fetching profile:', error);
         setUser(null);
       } else {
         // Check if user is admin
@@ -80,8 +79,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           preferences: profile?.preferences || null,
         });
       }
-    } catch (error) {
-      console.error('Error in fetchUserProfile:', error);
+    } catch {
       setUser(null);
     } finally {
       setLoading(false);
@@ -121,7 +119,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         ]);
 
       if (profileError) {
-        console.error('Error creating profile:', profileError);
       }
     }
 
@@ -131,7 +128,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
-      console.error('Error signing out:', error);
     }
   };
 

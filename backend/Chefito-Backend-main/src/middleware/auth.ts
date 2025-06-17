@@ -47,8 +47,7 @@ export const authenticateToken = async (
     };
 
     next();
-  } catch (error) {
-    console.error('Authentication error:', error);
+  } catch {
     return res.status(403).json({
       success: false,
       error: 'Authentication failed'

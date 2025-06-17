@@ -89,7 +89,6 @@ const CookiePolicyPage: React.FC = () => {
 
   const handleManageCookies = () => {
     // In a real app, this would open the cookie preferences modal
-    console.log('Opening cookie preferences...');
   };
 
   const handleClearCookies = () => {

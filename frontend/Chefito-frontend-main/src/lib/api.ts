@@ -9,7 +9,6 @@ export async function fetchWithAuth(url: string, options: RequestInit = {}) {
   try {
     // Check if API URL is configured
     if (!API_BASE_URL || API_BASE_URL === 'https://your-worker.your-subdomain.workers.dev') {
-      console.warn('API URL not configured, skipping request to:', url);
       throw new Error('API URL not configured');
     }
 
@@ -37,8 +36,7 @@ export async function fetchWithAuth(url: string, options: RequestInit = {}) {
         method: options.method || 'GET',
         status: response.status,
       });
-    } catch (logError) {
-      console.warn('Failed to log performance metrics:', logError);
+    } catch {
     }
 
     if (!response.ok) {
@@ -55,8 +53,7 @@ export async function fetchWithAuth(url: string, options: RequestInit = {}) {
         method: options.method || 'GET',
         error: error instanceof Error ? error.message : 'Unknown error',
       });
-    } catch (logError) {
-      console.warn('Failed to log error:', logError);
+    } catch {
     }
     throw error;
   }
@@ -71,8 +68,7 @@ export async function textToSpeech(text: string, voice = 'default') {
     });
 
     return response.blob();
-  } catch (error) {
-    console.warn('Text-to-speech service unavailable:', error);
+  } catch {
     throw new Error('Text-to-speech service is currently unavailable');
   }
 }
@@ -113,8 +109,7 @@ export async function checkSubscriptionStatus(userId: string) {
     });
     
     return response.json();
-  } catch (error) {
-    console.warn('Subscription service unavailable:', error);
+  } catch {
     return { isPremium: false, error: 'Service unavailable' };
   }
 }
@@ -126,8 +121,7 @@ export async function upgradeToPremium() {
     });
     
     return response.json();
-  } catch (error) {
-    console.warn('Premium upgrade service unavailable:', error);
+  } catch {
     throw new Error('Premium upgrade service is currently unavailable');
   }
 }
@@ -139,9 +133,7 @@ export async function trackEvent(eventName: string, properties: Record<string, a
       method: 'POST',
       body: JSON.stringify({ event: eventName, properties }),
     });
-  } catch (error) {
-    // Analytics failures should not break the app
-    console.warn('Analytics tracking failed:', error);
+  } catch {
   }
 }
 
@@ -150,8 +142,7 @@ export async function getCategories() {
   try {
     const response = await fetchWithAuth('/categories');
     return response.json();
-  } catch (error) {
-    console.warn('Categories service unavailable:', error);
+  } catch {
     return [];
   }
 }
@@ -184,8 +175,7 @@ export async function incrementRecipeView(userId: string, recipeId: string) {
       body: JSON.stringify({ userId, recipeId }),
     });
     return response.json();
-  } catch (error) {
-    console.warn('Recipe view tracking failed:', error);
+  } catch {
     return { success: false };
   }
 }
@@ -197,8 +187,7 @@ export async function canUserViewRecipe(userId: string, recipeId: string) {
       body: JSON.stringify({ userId, recipeId }),
     });
     return response.json();
-  } catch (error) {
-    console.warn('Recipe access check failed:', error);
+  } catch {
     return { canView: true }; // Default to allowing access if service is down
   }
 }

@@ -32,22 +32,21 @@ const staticPages = [
  */
 async function initSupabase() {
   try {
-    const { createClient } = await import('@supabase/supabase-js');
-    
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
+      const { createClient } = await import('@supabase/supabase-js');
+
+      const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+      const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
     
     if (!supabaseUrl || !supabaseKey) {
-      console.warn('⚠️  Variables d\'environnement Supabase manquantes. Utilisation des données d\'exemple.');
+      // Missing Supabase credentials, using example data
       return null;
     }
     
     return createClient(supabaseUrl, supabaseKey);
-  } catch (error) {
-    console.warn('⚠️  Impossible d\'initialiser Supabase:', error.message);
-    return null;
+    } catch (error) {
+      return null;
+    }
   }
-}
 
 /**
  * Récupérer les catégories depuis Supabase
@@ -61,17 +60,15 @@ async function fetchCategories(supabase) {
       .select('id, slug, updated_at')
       .order('slug');
     
-    if (error) {
-      console.warn('⚠️  Erreur lors de la récupération des catégories:', error.message);
-      return [];
-    }
+      if (error) {
+        return [];
+      }
     
     return data || [];
-  } catch (error) {
-    console.warn('⚠️  Erreur lors de la récupération des catégories:', error.message);
-    return [];
+    } catch (error) {
+      return [];
+    }
   }
-}
 
 /**
  * Récupérer les recettes approuvées depuis Supabase
@@ -86,17 +83,15 @@ async function fetchRecipes(supabase) {
       .eq('approved', true)
       .order('updated_at', { ascending: false });
     
-    if (error) {
-      console.warn('⚠️  Erreur lors de la récupération des recettes:', error.message);
-      return [];
-    }
+      if (error) {
+        return [];
+      }
     
     return data || [];
-  } catch (error) {
-    console.warn('⚠️  Erreur lors de la récupération des recettes:', error.message);
-    return [];
+    } catch (error) {
+      return [];
+    }
   }
-}
 
 /**
  * Données d'exemple en cas d'échec de connexion à Supabase
@@ -196,7 +191,7 @@ function generateSitemap(categories, recipes) {
  * Fonction principale
  */
 async function main() {
-  console.log('🚀 Génération du sitemap...');
+  // Start sitemap generation
   
   // Initialiser Supabase
   const supabase = await initSupabase();
@@ -205,7 +200,6 @@ async function main() {
   let recipes = [];
   
   if (supabase) {
-    console.log('✅ Connexion à Supabase établie');
     
     // Récupérer les données depuis Supabase
     [categories, recipes] = await Promise.all([
@@ -213,10 +207,7 @@ async function main() {
       fetchRecipes(supabase)
     ]);
     
-    console.log(`📂 ${categories.length} catégories récupérées`);
-    console.log(`📄 ${recipes.length} recettes récupérées`);
   } else {
-    console.log('📝 Utilisation des données d\'exemple');
     const exampleData = getExampleData();
     categories = exampleData.categories;
     recipes = exampleData.recipes;
@@ -233,32 +224,21 @@ async function main() {
     const sitemapXml = generateSitemap(categories, recipes);
     fs.writeFileSync(OUTPUT_PATH, sitemapXml, 'utf8');
     
-    const totalUrls = staticPages.length + categories.length + recipes.length;
-    console.log(`✅ Sitemap généré avec succès: ${OUTPUT_PATH}`);
-    console.log(`📊 Total des URLs: ${totalUrls}`);
-    console.log(`   - Pages statiques: ${staticPages.length}`);
-    console.log(`   - Catégories: ${categories.length}`);
-    console.log(`   - Recettes: ${recipes.length}`);
+      const totalUrls = staticPages.length + categories.length + recipes.length;
     
     // Valider le XML généré
-    if (sitemapXml.includes('<url>') && sitemapXml.includes('</urlset>')) {
-      console.log('✅ Structure XML valide');
-    } else {
-      console.warn('⚠️  Structure XML potentiellement invalide');
-    }
+      if (!sitemapXml.includes('<url>') || !sitemapXml.includes('</urlset>')) {
+        throw new Error('Invalid XML structure');
+      }
     
-  } catch (error) {
-    console.error('❌ Erreur lors de la génération du sitemap:', error);
-    process.exit(1);
+    } catch (error) {
+      process.exit(1);
+    }
   }
-}
 
 // Exécuter le script
-if (process.argv[1] === __filename) {
-  main().catch(error => {
-    console.error('❌ Erreur fatale:', error);
-    process.exit(1);
-  });
-}
+  if (process.argv[1] === __filename) {
+    main().catch(() => process.exit(1));
+  }
 
 export { main, generateSitemap };

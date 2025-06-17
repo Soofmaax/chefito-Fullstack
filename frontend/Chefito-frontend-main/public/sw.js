@@ -14,27 +14,25 @@ const STATIC_ASSETS = [
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
-  console.log('Service Worker: Installing...');
+
   
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then((cache) => {
-        console.log('Service Worker: Caching static assets');
         return cache.addAll(STATIC_ASSETS);
       })
       .then(() => {
-        console.log('Service Worker: Static assets cached');
         return self.skipWaiting();
       })
       .catch((error) => {
-        console.error('Service Worker: Error caching static assets', error);
+        // Error caching static assets
       })
   );
 });
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker: Activating...');
+
   
   event.waitUntil(
     caches.keys()
@@ -42,14 +40,13 @@ self.addEventListener('activate', (event) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
             if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
-              console.log('Service Worker: Deleting old cache', cacheName);
               return caches.delete(cacheName);
             }
           })
         );
       })
       .then(() => {
-        console.log('Service Worker: Activated');
+
         return self.clients.claim();
       })
   );
@@ -130,7 +127,7 @@ self.addEventListener('fetch', (event) => {
             return response;
           })
           .catch((error) => {
-            console.log('Service Worker: Fetch failed', error);
+            // Fetch failed
             
             // Return placeholder for images
             if (request.destination === 'image') {
@@ -148,7 +145,7 @@ self.addEventListener('fetch', (event) => {
 
 // Background sync for offline actions
 self.addEventListener('sync', (event) => {
-  console.log('Service Worker: Background sync', event.tag);
+
   
   if (event.tag === 'background-sync') {
     event.waitUntil(
@@ -160,7 +157,7 @@ self.addEventListener('sync', (event) => {
 
 // Push notifications
 self.addEventListener('push', (event) => {
-  console.log('Service Worker: Push received');
+
   
   const options = {
     body: event.data ? event.data.text() : 'Nouvelle notification de Chefito',
@@ -192,7 +189,7 @@ self.addEventListener('push', (event) => {
 
 // Notification click handling
 self.addEventListener('notificationclick', (event) => {
-  console.log('Service Worker: Notification clicked', event.action);
+
   
   event.notification.close();
 
@@ -222,7 +219,7 @@ self.addEventListener('message', (event) => {
 async function handleBackgroundSync() {
   try {
     // Handle any pending offline actions
-    console.log('Service Worker: Handling background sync tasks');
+    // Handling background sync tasks
     
     // Example: Sync offline recipe submissions
     const pendingSubmissions = await getStoredSubmissions();
@@ -232,11 +229,11 @@ async function handleBackgroundSync() {
         await submitRecipe(submission);
         await removeStoredSubmission(submission.id);
       } catch (error) {
-        console.error('Service Worker: Failed to sync submission', error);
+        // Failed to sync submission
       }
     }
   } catch (error) {
-    console.error('Service Worker: Background sync failed', error);
+    // Background sync failed
   }
 }
 
@@ -259,5 +256,5 @@ async function submitRecipe(submission) {
 
 async function removeStoredSubmission(id) {
   // Implementation for removing stored submission
-  console.log('Removing stored submission', id);
+
 }

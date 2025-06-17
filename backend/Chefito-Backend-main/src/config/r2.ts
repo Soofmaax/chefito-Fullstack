@@ -35,9 +35,9 @@ if (isR2Configured) {
   });
 } else {
   if (bucketUrl && !isValidUrl(bucketUrl)) {
-    console.warn('⚠️  CLOUDFLARE_BUCKET_URL is invalid. Please set a valid R2 endpoint URL in your .env file (e.g., https://your-account-id.r2.cloudflarestorage.com)');
+    // Invalid Cloudflare R2 URL
   } else {
-    console.warn('⚠️  Cloudflare R2 not configured. Recipe storage will be simulated.');
+    // Cloudflare R2 not configured, using mock storage
   }
 }
 

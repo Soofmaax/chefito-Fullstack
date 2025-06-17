@@ -15,9 +15,8 @@ export interface WebVitalsMetric {
  * Track Core Web Vitals
  */
 export const trackWebVitals = (metric: WebVitalsMetric) => {
-  // Log to console in development
+  // Log metrics in development
   if (process.env.NODE_ENV === 'development') {
-    console.log('Web Vital:', metric);
   }
 
   // Send to analytics service in production
@@ -42,11 +41,10 @@ export const measurePerformance = (name: string, fn: () => void | Promise<void>)
   
   const finish = () => {
     const duration = performance.now() - start;
-    console.log(`Performance: ${name} took ${duration.toFixed(2)}ms`);
     
     // Track long tasks (>50ms)
     if (duration > 50) {
-      console.warn(`Long task detected: ${name} (${duration.toFixed(2)}ms)`);
+      // Long task detected
     }
   };
 
@@ -186,7 +184,7 @@ export const shouldLoadHighQuality = () => {
 export const logBundleSize = () => {
   if (process.env.NODE_ENV === 'development') {
     // This would be replaced by actual bundle analysis in build process
-    console.log('Bundle analysis available in build process');
+    // Bundle analysis available in build process
   }
 };
 
@@ -196,10 +194,6 @@ export const logBundleSize = () => {
 export const monitorMemoryUsage = () => {
   if ('memory' in performance) {
     const memory = (performance as any).memory;
-    console.log('Memory usage:', {
-      used: Math.round(memory.usedJSHeapSize / 1048576) + ' MB',
-      total: Math.round(memory.totalJSHeapSize / 1048576) + ' MB',
-      limit: Math.round(memory.jsHeapSizeLimit / 1048576) + ' MB',
-    });
+    // Memory usage monitoring for development
   }
 };

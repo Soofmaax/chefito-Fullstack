@@ -50,3 +50,28 @@ export const viewLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 });
+
+// Rate limiter for login
+export const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  message: {
+    success: false,
+    error: 'Trop de tentatives de connexion, veuillez réessayer plus tard.',
+  } as ApiResponse,
+  standardHeaders: true,
+  legacyHeaders: false,
+  skipSuccessfulRequests: true,
+});
+
+// Rate limiter for recipe submission
+export const submitRecipeLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 5,
+  message: {
+    success: false,
+    error: 'Trop de soumissions, veuillez réessayer plus tard.',
+  } as ApiResponse,
+  standardHeaders: true,
+  legacyHeaders: false,
+});

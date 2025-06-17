@@ -17,8 +17,7 @@ export class UserService {
       }
 
       return data;
-    } catch (error) {
-      console.error('Error fetching user profile:', error);
+    } catch {
       throw createError('Failed to fetch user profile', 500);
     }
   }
@@ -43,8 +42,7 @@ export class UserService {
       }
 
       return data;
-    } catch (error) {
-      console.error('Error updating user profile:', error);
+    } catch {
       throw createError('Failed to update user profile', 500);
     }
   }
@@ -62,8 +60,7 @@ export class UserService {
       }
 
       return data;
-    } catch (error) {
-      console.error('Error fetching user stats:', error);
+    } catch {
       throw createError('Failed to fetch user stats', 500);
     }
   }
@@ -101,8 +98,7 @@ export class UserService {
 
         if (error) throw error;
       }
-    } catch (error) {
-      console.error('Error incrementing recipe view:', error);
+    } catch {
       throw createError('Failed to update recipe view count', 500);
     }
   }
@@ -127,8 +123,7 @@ export class UserService {
 
         if (error) throw error;
       }
-    } catch (error) {
-      console.error('Error adding favorite recipe:', error);
+    } catch {
       throw createError('Failed to add favorite recipe', 500);
     }
   }

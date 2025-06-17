@@ -31,7 +31,6 @@ export function RecentActivity({ loading: parentLoading = false }: RecentActivit
       const data = await api.getRecentActivity(10);
       setActivities(data);
     } catch (error: any) {
-      console.error('Error loading recent activity:', error);
       setError(error.message);
       // Fallback data
       setActivities([

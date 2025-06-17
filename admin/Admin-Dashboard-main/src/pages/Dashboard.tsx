@@ -28,7 +28,6 @@ export function Dashboard() {
       setStats(statsData);
       
     } catch (error: any) {
-      console.error('Error loading dashboard data:', error);
       setError(error.message);
       toast.error('Failed to load dashboard data');
     } finally {
