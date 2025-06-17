@@ -1,0 +1,37 @@
+# Ignore all pages during UI component development
+src/pages/
+
+# Ignore hooks and business logic
+src/hooks/
+
+# Ignore layout components (focus on atomic UI)
+src/components/layout/
+
+# Ignore API and business logic
+src/lib/api.ts
+src/lib/logger.ts
+src/lib/supabase.ts
+
+# Ignore types (except UI-related)
+src/types/supabase.ts
+
+# Ignore config files
+public/
+netlify.toml
+vite.config.ts
+tsconfig*.json
+
+# Ignore tests for now (will be added back later)
+src/__tests__/
+src/**/*.test.tsx
+src/**/*.test.ts
+
+# Keep only UI components and their dependencies
+!src/components/ui/
+!src/lib/utils/
+!src/lib/constants/
+!src/test/
+!vitest.config.ts
+!eslint.config.js
+!tailwind.config.js
+!package.json

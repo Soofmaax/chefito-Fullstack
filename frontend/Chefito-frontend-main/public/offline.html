@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hors ligne - Chefito</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #F5E8C7 0%, #D4A574 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 48px 32px;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            max-width: 480px;
+            width: 100%;
+        }
+        
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: #D35400;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1C2526;
+            margin-bottom: 16px;
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+        
+        p {
+            font-size: 16px;
+            color: #6B7280;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        
+        .button {
+            background: #D35400;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .button:hover {
+            background: #B8470F;
+            transform: translateY(-1px);
+        }
+        
+        .features {
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: #F9FAFB;
+            border-radius: 8px;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: #D35400;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .feature-text {
+            font-size: 14px;
+            color: #374151;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 32px 24px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .icon {
+                width: 64px;
+                height: 64px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            🍳
+        </div>
+        
+        <h1>Vous êtes hors ligne</h1>
+        
+        <p>
+            Il semble que vous n'ayez pas de connexion internet. 
+            Chefito fonctionne mieux en ligne, mais vous pouvez toujours 
+            consulter vos recettes mises en cache.
+        </p>
+        
+        <button class="button" onclick="window.location.reload()">
+            Réessayer
+        </button>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <div class="feature-text">
+                    Accès aux recettes mises en cache
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🎙️</div>
+                <div class="feature-text">
+                    Assistant vocal disponible hors ligne
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">⏱️</div>
+                <div class="feature-text">
+                    Minuteurs et outils de cuisine
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">💾</div>
+                <div class="feature-text">
+                    Vos données seront synchronisées au retour en ligne
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Check for connection and reload when back online
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+        
+        // Show connection status
+        if (navigator.onLine) {
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

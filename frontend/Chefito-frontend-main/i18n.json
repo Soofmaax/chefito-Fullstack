@@ -1,0 +1,11 @@
+{
+  "locale": {
+    "source": "en",
+    "targets": ["fr"]
+  },
+  "buckets": {
+    "json": {
+      "include": ["public/locales/[locale].json"]
+    }
+  }
+}

@@ -1,0 +1,422 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "save": "Sauvegarder",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "yes": "Oui",
+    "no": "Non",
+    "confirm": "Confirmer",
+    "continue": "Continuer",
+    "finish": "Terminer",
+    "start": "Commencer",
+    "stop": "Arrêter",
+    "pause": "Pause",
+    "play": "Lecture",
+    "retry": "Réessayer",
+    "refresh": "Actualiser"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "recipes": "Recettes",
+    "search": "Recherche",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "contact": "Contact",
+    "login": "Connexion",
+    "signup": "Inscription",
+    "profile": "Profil",
+    "account": "Compte",
+    "admin": "Admin",
+    "logout": "Déconnexion",
+    "audit": "Audit",
+    "favorites": "Favoris",
+    "mobile_main_nav_aria_label": "Navigation principale mobile"
+  },
+  "home": {
+    "hero": {
+      "badge": "Assistant Culinaire IA",
+      "title": "Votre Assistant Culinaire IA",
+      "subtitle": "Découvrez des recettes, suivez des instructions vocales étape par étape, et devenez un meilleur cuisinier avec Chefito.",
+      "image_alt": "Interface de cuisine Chefito avec assistant IA vocal",
+      "ai_interaction_aria_label": "Exemple d'interaction avec l'assistant IA",
+      "ai_status": "Assistant IA Actif",
+      "ai_quote": "Ajoutez maintenant les tomates et laissez mijoter 5 minutes...",
+      "recipes_count_label": "Recettes",
+      "rating_label": "Satisfaction",
+      "scroll_down_aria_label": "Faire défiler vers le bas",
+      "cta": {
+        "primary": "Explorer les Recettes",
+        "secondary": "Voir la Démo",
+        "primary_description": "Découvrez notre collection de recettes avec instructions vocales",
+        "secondary_description": "Regardez une démonstration de notre assistant culinaire IA"
+      }
+    },
+    "features": {
+      "title": "Fonctionnalités Avancées",
+      "subtitle": "Découvrez les fonctionnalités qui font de Chefito l'assistant culinaire le plus avancé au monde.",
+      "ai": {
+        "title": "Assistant IA Vocal",
+        "description": "Guidage vocal intelligent à travers chaque étape de cuisson"
+      },
+      "recipes": {
+        "title": "Bibliothèque de Recettes",
+        "description": "2,847+ recettes du monde entier avec instructions détaillées"
+      },
+      "collaboration": {
+        "title": "Cuisine Collaborative",
+        "description": "Cuisinez ensemble avec vos amis et votre famille à distance"
+      },
+      "voice": {
+        "title": "Commandes Vocales",
+        "description": "Contrôlez votre expérience culinaire avec des commandes vocales naturelles"
+      },
+      "timer": {
+        "title": "Minuteurs Intelligents",
+        "description": "Minuteurs automatiques pour chaque étape de la recette"
+      },
+      "quality": {
+        "title": "Qualité Premium",
+        "description": "Recettes testées et approuvées par des chefs professionnels"
+      },
+      "stats": {
+        "recipes": "Recettes",
+        "users": "Utilisateurs",
+        "satisfaction": "Satisfaction",
+        "support": "Support IA"
+      }
+    }
+  },
+  "recipe": {
+    "featured": "En vedette",
+    "featured_aria_label": "Recette en vedette",
+    "image_alt": "Photo de la recette {title}",
+    "info_aria_label": "Informations sur la recette",
+    "servings_singular": "portion",
+    "servings_plural": "portions",
+    "collaborate": "Cuisiner Ensemble",
+    "collaborate_aria_label": "Commencer une session de cuisine collaborative pour {title}",
+    "difficulty": {
+      "easy": "Facile",
+      "medium": "Moyen",
+      "hard": "Difficile"
+    },
+    "cooking_time": "Temps de cuisson",
+    "prep_time": "Temps de préparation",
+    "total_time": "Temps total",
+    "ingredients": "Ingrédients",
+    "instructions": "Instructions",
+    "nutrition": "Nutrition",
+    "reviews": "Avis",
+    "rating": "Note",
+    "add_to_favorites": "Ajouter aux favoris",
+    "remove_from_favorites": "Retirer des favoris",
+    "share": "Partager",
+    "print": "Imprimer",
+    "start_cooking": "Commencer à cuisiner",
+    "view_recipe": "Voir la recette"
+  },
+  "voice_assistant": {
+    "heard": "Assistant a entendu",
+    "try_saying": "Essayez de dire",
+    "commands": "\"Étape suivante\" • \"Pause\" • \"Répéter\"",
+    "listening": "Écoute...",
+    "start_listening": "Démarrer l'assistant vocal",
+    "stop_listening": "Arrêter l'écoute",
+    "not_supported": "Reconnaissance vocale non supportée dans ce navigateur",
+    "permission_denied": "Permission du microphone refusée",
+    "error": "Erreur de reconnaissance vocale"
+  },
+  "cookies": {
+    "title": "Cookies et Confidentialité",
+    "gdpr_compliant": "Conforme RGPD",
+    "description": "Ce site utilise des cookies pour améliorer votre expérience culinaire, mémoriser vos préférences et fournir des recommandations de recettes personnalisées.",
+    "secure": "Sécurisé",
+    "transparent": "Transparent",
+    "accept_all": "Tout Accepter",
+    "decline": "Refuser",
+    "dismiss": "Fermer la bannière de cookies",
+    "privacy_policy_link": "Lire notre Politique de Confidentialité"
+  },
+  "toast": {
+    "close_notification_aria_label": "Fermer la notification"
+  },
+  "auth": {
+    "login": "Connexion",
+    "signup": "Inscription",
+    "logout": "Déconnexion",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirm_password": "Confirmer le mot de passe",
+    "forgot_password": "Mot de passe oublié ?",
+    "remember_me": "Se souvenir de moi",
+    "create_account": "Créer un compte",
+    "already_have_account": "Vous avez déjà un compte ?",
+    "dont_have_account": "Vous n'avez pas de compte ?",
+    "reset_password": "Réinitialiser le mot de passe",
+    "back_to_login": "Retour à la connexion",
+    "check_email": "Vérifiez votre email pour les instructions de réinitialisation",
+    "invalid_credentials": "Email ou mot de passe invalide",
+    "account_created": "Compte créé avec succès",
+    "password_reset_sent": "Email de réinitialisation envoyé",
+    "login_required": "Veuillez vous connecter pour continuer",
+    "logout_success": "Déconnexion réussie"
+  },
+  "pricing": {
+    "title": "Choisissez Votre Plan",
+    "subtitle": "Commencez à cuisiner plus intelligemment avec nos options de tarification flexibles",
+    "free": {
+      "name": "Gratuit",
+      "price": "0€",
+      "period": "pour toujours",
+      "description": "Parfait pour essayer Chefito",
+      "features": [
+        "2 recettes par semaine",
+        "Assistant vocal de base",
+        "Recherche de recettes",
+        "Accès à l'application mobile"
+      ],
+      "cta": "Commencer"
+    },
+    "standard": {
+      "name": "Standard",
+      "price": "9,99€",
+      "period": "par mois",
+      "description": "Pour les cuisiniers passionnés",
+      "features": [
+        "Recettes illimitées",
+        "Assistant vocal avancé",
+        "Accès hors ligne",
+        "Planification des repas",
+        "Listes de courses",
+        "Support prioritaire"
+      ],
+      "cta": "Essai Gratuit"
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "19,99€",
+      "period": "par mois",
+      "description": "Pour les passionnés de cuisine",
+      "features": [
+        "Tout dans Standard",
+        "Coach culinaire IA",
+        "Recommandations personnalisées",
+        "Analyses avancées",
+        "Accès API",
+        "Options marque blanche"
+      ],
+      "cta": "Essai Gratuit"
+    },
+    "popular": "Le Plus Populaire",
+    "free_trial": "Essai gratuit de 14 jours",
+    "no_credit_card": "Aucune carte de crédit requise",
+    "cancel_anytime": "Annulez à tout moment",
+    "upgrade": "Mettre à niveau",
+    "current_plan": "Plan Actuel"
+  },
+  "about": {
+    "title": "À Propos de Chefito",
+    "subtitle": "Révolutionner la façon dont les gens cuisinent avec l'assistance IA",
+    "mission": {
+      "title": "Notre Mission",
+      "description": "Rendre la cuisine accessible, agréable et sans stress pour tous, quel que soit leur niveau de compétence."
+    },
+    "story": {
+      "title": "Notre Histoire",
+      "description": "Fondé en 2024 par une équipe de chefs passionnés et d'ingénieurs IA, Chefito est né de l'idée que la technologie devrait améliorer, et non compliquer, l'expérience culinaire."
+    },
+    "team": {
+      "title": "Rencontrez l'Équipe",
+      "description": "Notre équipe diversifiée combine l'expertise culinaire avec une technologie de pointe pour vous offrir la meilleure expérience de cuisine."
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "accessibility": {
+        "title": "Accessibilité",
+        "description": "La cuisine devrait être accessible à tous"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Nous repoussons les limites de la technologie culinaire"
+      },
+      "community": {
+        "title": "Communauté",
+        "description": "Créer des liens à travers des expériences culinaires partagées"
+      },
+      "quality": {
+        "title": "Qualité",
+        "description": "Chaque recette est testée et perfectionnée"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Nous aimerions avoir de vos nouvelles. Envoyez-nous un message et nous répondrons dès que possible.",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "send": "Envoyer le Message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Échec de l'envoi du message. Veuillez réessayer."
+    },
+    "info": {
+      "address": "123 Rue Culinaire, Paris, France",
+      "phone": "+33 1 23 45 67 89",
+      "email": "hello@chefito.app",
+      "hours": "Lundi - Vendredi : 9h00 - 18h00"
+    },
+    "social": {
+      "title": "Suivez-Nous",
+      "description": "Restez connecté pour les dernières mises à jour et recettes"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Politique de Confidentialité",
+      "last_updated": "Dernière mise à jour : {date}",
+      "sections": {
+        "introduction": "Introduction",
+        "data_collection": "Collecte de Données",
+        "data_usage": "Comment Nous Utilisons Vos Données",
+        "data_sharing": "Partage de Données",
+        "security": "Sécurité",
+        "your_rights": "Vos Droits",
+        "contact": "Nous Contacter"
+      }
+    },
+    "terms": {
+      "title": "Conditions d'Utilisation",
+      "last_updated": "Dernière mise à jour : {date}",
+      "sections": {
+        "acceptance": "Acceptation des Conditions",
+        "description": "Description du Service",
+        "user_accounts": "Comptes Utilisateur",
+        "prohibited_uses": "Utilisations Interdites",
+        "content": "Contenu",
+        "termination": "Résiliation",
+        "disclaimer": "Avertissement",
+        "limitation": "Limitation de Responsabilité",
+        "governing_law": "Droit Applicable"
+      }
+    },
+    "cookies": {
+      "title": "Politique des Cookies",
+      "last_updated": "Dernière mise à jour : {date}",
+      "sections": {
+        "what_are_cookies": "Que Sont les Cookies",
+        "how_we_use": "Comment Nous Utilisons les Cookies",
+        "types_of_cookies": "Types de Cookies",
+        "managing_cookies": "Gestion des Cookies",
+        "contact": "Nous Contacter"
+      }
+    }
+  },
+  "search": {
+    "title": "Rechercher des Recettes",
+    "placeholder": "Rechercher des recettes, ingrédients ou cuisines...",
+    "no_results": "Aucune recette trouvée",
+    "no_results_description": "Essayez d'ajuster vos termes de recherche ou parcourez nos catégories",
+    "results_count": "{count} recettes trouvées",
+    "filters": {
+      "title": "Filtres",
+      "clear_all": "Tout Effacer",
+      "category": "Catégorie",
+      "difficulty": "Difficulté",
+      "cooking_time": "Temps de Cuisson",
+      "dietary": "Restrictions Alimentaires",
+      "cuisine": "Cuisine"
+    },
+    "sort": {
+      "title": "Trier par",
+      "relevance": "Pertinence",
+      "newest": "Plus Récent",
+      "oldest": "Plus Ancien",
+      "rating": "Note",
+      "cooking_time": "Temps de Cuisson",
+      "popularity": "Popularité"
+    }
+  },
+  "account": {
+    "title": "Mon Compte",
+    "profile": {
+      "title": "Profil",
+      "name": "Nom Complet",
+      "email": "Email",
+      "avatar": "Photo de Profil",
+      "save": "Sauvegarder les Modifications",
+      "saved": "Profil mis à jour avec succès"
+    },
+    "preferences": {
+      "title": "Préférences",
+      "language": "Langue",
+      "theme": "Thème",
+      "notifications": "Notifications",
+      "dietary_restrictions": "Restrictions Alimentaires",
+      "cooking_level": "Niveau de Cuisine"
+    },
+    "subscription": {
+      "title": "Abonnement",
+      "current_plan": "Plan Actuel",
+      "usage": "Utilisation Cette Semaine",
+      "upgrade": "Mettre à Niveau le Plan",
+      "cancel": "Annuler l'Abonnement",
+      "renews": "Renouvelle le {date}"
+    },
+    "security": {
+      "title": "Sécurité",
+      "change_password": "Changer le Mot de Passe",
+      "current_password": "Mot de Passe Actuel",
+      "new_password": "Nouveau Mot de Passe",
+      "confirm_new_password": "Confirmer le Nouveau Mot de Passe",
+      "two_factor": "Authentification à Deux Facteurs",
+      "enable_2fa": "Activer 2FA",
+      "disable_2fa": "Désactiver 2FA"
+    }
+  },
+  "errors": {
+    "404": {
+      "title": "Page Non Trouvée",
+      "description": "La page que vous recherchez n'existe pas.",
+      "back_home": "Retour à l'Accueil"
+    },
+    "500": {
+      "title": "Erreur Serveur",
+      "description": "Quelque chose s'est mal passé de notre côté.",
+      "try_again": "Réessayer"
+    },
+    "network": {
+      "title": "Erreur Réseau",
+      "description": "Veuillez vérifier votre connexion internet.",
+      "retry": "Réessayer"
+    },
+    "generic": {
+      "title": "Quelque chose s'est mal passé",
+      "description": "Une erreur inattendue s'est produite.",
+      "contact_support": "Contacter le Support"
+    }
+  },
+  "loading": {
+    "recipes": "Chargement des recettes...",
+    "recipe": "Chargement de la recette...",
+    "profile": "Chargement du profil...",
+    "search": "Recherche en cours...",
+    "saving": "Sauvegarde...",
+    "uploading": "Téléchargement...",
+    "processing": "Traitement..."
+  }
+}
