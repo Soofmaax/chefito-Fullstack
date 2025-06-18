@@ -53,7 +53,6 @@ export const useFreemiumStatus = (): FreemiumStatus => {
           .eq('year', currentYear);
 
         if (error) {
-          console.error('Error fetching recipe views:', error);
           return;
         }
 
@@ -69,8 +68,7 @@ export const useFreemiumStatus = (): FreemiumStatus => {
           isPremium,
           weeklyLimit,
         });
-      } catch (error) {
-        console.error('Error in fetchViewStatus:', error);
+      } catch {
       }
     };
 
@@ -100,9 +98,7 @@ export const trackRecipeView = async (recipeId: string, userId?: string) => {
       });
 
     if (error) {
-      console.error('Error tracking recipe view:', error);
     }
-  } catch (error) {
-    console.error('Error in trackRecipeView:', error);
+  } catch {
   }
 };

@@ -140,15 +140,13 @@ export class R2Service {
                 reviewCount: recipe.reviewCount,
               });
             }
-          } catch (error) {
-            console.warn(`Failed to process recipe ${object.Key}:`, error);
+          } catch {
           }
         }
       }
 
       return recipes;
-    } catch (error) {
-      console.error('Error listing recipes from R2:', error);
+    } catch {
       throw createError('Failed to fetch recipes', 500);
     }
   }
@@ -173,12 +171,11 @@ export class R2Service {
 
       const recipeData = JSON.parse(data.Body.toString());
       return recipeData as Recipe;
-    } catch (error: any) {
-      if (error.statusCode === 404) {
-        return null;
-      }
-      console.error(`Error fetching recipe ${recipeId} from R2:`, error);
-      throw createError('Failed to fetch recipe', 500);
+      } catch (error: any) {
+        if (error.statusCode === 404) {
+          return null;
+        }
+        throw createError('Failed to fetch recipe', 500);
     }
   }
 
@@ -233,15 +230,13 @@ export class R2Service {
               const variant = JSON.parse(variantData.Body.toString()) as RecipeVariant;
               variants.push(variant);
             }
-          } catch (error) {
-            console.warn(`Failed to process variant ${object.Key}:`, error);
+          } catch {
           }
         }
       }
 
       return variants;
-    } catch (error) {
-      console.error(`Error fetching variants for recipe ${recipeId}:`, error);
+    } catch {
       throw createError('Failed to fetch recipe variants', 500);
     }
   }
@@ -259,8 +254,7 @@ export class R2Service {
       };
 
       return this.s3!.getSignedUrl('getObject', params);
-    } catch (error) {
-      console.error(`Error generating signed URL for ${key}:`, error);
+    } catch {
       throw createError('Failed to generate signed URL', 500);
     }
   }

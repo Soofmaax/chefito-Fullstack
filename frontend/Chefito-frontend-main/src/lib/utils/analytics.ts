@@ -22,7 +22,6 @@ export function trackEvent(eventName: string, properties?: EventProperties): voi
   };
 
   // Log to console for development
-  console.log('📊 Analytics Event:', event);
 
   // Store in localStorage for demo purposes
   try {
@@ -35,8 +34,7 @@ export function trackEvent(eventName: string, properties?: EventProperties): voi
     }
     
     localStorage.setItem('chefito_analytics', JSON.stringify(existingEvents));
-  } catch (error) {
-    console.warn('Failed to store analytics event:', error);
+  } catch {
   }
 }
 
@@ -125,8 +123,7 @@ export function trackEventWithConsent(eventName: string, properties?: EventPrope
   if (essentialEvents.includes(eventName) || hasConsentedToCookies()) {
     trackEvent(eventName, properties);
   } else {
-    // Log to console for development but don't store
-    console.log('📊 Analytics Event (not stored - no consent):', {
+    // Event ignored when no consent
       name: eventName,
       properties: properties || {},
     });

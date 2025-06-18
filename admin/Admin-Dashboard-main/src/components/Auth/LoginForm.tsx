@@ -18,7 +18,6 @@ export function LoginForm() {
       await signIn(email, password);
       toast.success('Welcome to Chefito Admin!');
     } catch (error: any) {
-      console.error('Login error:', error);
       toast.error(error.message || 'Failed to sign in');
     } finally {
       setLoading(false);

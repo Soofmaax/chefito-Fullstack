@@ -106,7 +106,6 @@ class ApiClient {
 
       return await response.json();
     } catch (error) {
-      console.error('API Request failed:', error);
       throw error;
     }
   }
@@ -120,9 +119,8 @@ class ApiClient {
   async getAdminStats(): Promise<AdminStats> {
     try {
       return await this.request<AdminStats>('/admin/stats');
-    } catch (error) {
+    } catch {
       // Fallback avec des données mockées si l'endpoint n'existe pas encore
-      console.warn('Admin stats endpoint not available, using fallback data');
       return {
         total_users: 2847,
         total_recipes: 1429,
@@ -204,9 +202,8 @@ class ApiClient {
 
       const query = searchParams.toString() ? `?${searchParams.toString()}` : '';
       return await this.request<{ users: User[]; total: number; page: number; limit: number }>(`/admin/users${query}`);
-    } catch (error) {
+    } catch {
       // Fallback avec des données mockées
-      console.warn('Admin users endpoint not available, using fallback data');
       return {
         users: [
           {
@@ -277,9 +274,8 @@ class ApiClient {
 
       const query = searchParams.toString() ? `?${searchParams.toString()}` : '';
       return await this.request<{ comments: Comment[]; total: number; page: number; limit: number }>(`/admin/comments${query}`);
-    } catch (error) {
+    } catch {
       // Fallback avec des données mockées
-      console.warn('Admin comments endpoint not available, using fallback data');
       return {
         comments: [
           {

@@ -37,8 +37,6 @@ const sendLogToBackend = async (logData: LogData) => {
   try {
     const API_BASE_URL = import.meta.env.VITE_API_URL;
     if (!API_BASE_URL) {
-      console.warn('API URL not configured, logging to console instead');
-      console.log('[LOG]', logData);
       return;
     }
 
@@ -49,10 +47,8 @@ const sendLogToBackend = async (logData: LogData) => {
       },
       body: JSON.stringify(logData),
     });
-  } catch (error) {
-    // Fallback to console logging if backend is unavailable
-    console.warn('Failed to send log to backend, falling back to console:', error);
-    console.log('[LOG]', logData);
+  } catch {
+    // Fallback when backend is unavailable
   }
 };
 

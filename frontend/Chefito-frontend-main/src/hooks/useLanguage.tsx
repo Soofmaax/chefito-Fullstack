@@ -97,8 +97,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       const translations = await response.json();
       translationCache[language] = translations;
       return translations;
-    } catch (error) {
-      console.warn(`Failed to load translations for ${language}:`, error);
+    } catch {
       
       // Return fallback translations if available
       if (language === 'en') {
@@ -112,8 +111,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
           const fallbackTranslations = await fallbackResponse.json();
           return fallbackTranslations;
         }
-      } catch (fallbackError) {
-        console.warn('Failed to load fallback translations:', fallbackError);
+      } catch {
       }
       
       return {};
@@ -150,7 +148,6 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   // Change language function
   const setLanguage = async (language: SupportedLanguage) => {
     if (!SUPPORTED_LANGUAGES[language]) {
-      console.warn(`Unsupported language: ${language}`);
       return;
     }
 
@@ -166,8 +163,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       
       // Update document language
       document.documentElement.lang = language;
-    } catch (error) {
-      console.error('Failed to change language:', error);
+    } catch {
     } finally {
       setIsLoading(false);
     }
@@ -214,7 +210,6 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     
     // Ensure we have a string
     if (typeof value !== 'string') {
-      console.warn(`Translation key "${key}" did not resolve to a string:`, value);
       return key;
     }
     

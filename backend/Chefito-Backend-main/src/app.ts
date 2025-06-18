@@ -6,7 +6,7 @@ import routes from './routes';
 import { errorHandler, notFound, setupErrorHandlers } from './middleware/errorHandler';
 import { initializeDatabase } from './config/database';
 import { httpLogger, logger } from './config/logger';
-import { generalLimiter } from './config/rateLimiter';
+import { generalLimiter, loginLimiter, submitRecipeLimiter } from './config/rateLimiter';
 import { setupSwagger } from './config/swagger';
 
 // Load environment variables
@@ -26,6 +26,8 @@ app.use(helmet({
 
 // Rate limiting
 app.use(generalLimiter);
+app.use('/login', loginLimiter);
+app.use('/submit-recipe', submitRecipeLimiter);
 
 // CORS configuration
 app.use(cors({

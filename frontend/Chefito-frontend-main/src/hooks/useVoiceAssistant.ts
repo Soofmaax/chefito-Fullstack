@@ -80,8 +80,7 @@ export const useVoiceAssistant = (): VoiceAssistantHook => {
         }, 10000);
       };
       
-      recognition.onerror = (event) => {
-        console.error('Speech recognition error:', event.error);
+      recognition.onerror = () => {
         setIsListening(false);
         
         // Handle specific errors
@@ -90,20 +89,19 @@ export const useVoiceAssistant = (): VoiceAssistantHook => {
             alert('Microphone access denied. Please allow microphone access to use voice features.');
             break;
           case 'no-speech':
-            console.log('No speech detected');
+            // No speech detected
             break;
           case 'network':
-            console.log('Network error occurred');
+            // Network error occurred
             break;
           default:
-            console.log('Unknown error occurred');
+            // Unknown error
         }
       };
       
       recognitionRef.current = recognition;
     } else {
       setIsSupported(false);
-      console.warn('Speech recognition not supported in this browser');
     }
     
     return () => {
@@ -117,8 +115,8 @@ export const useVoiceAssistant = (): VoiceAssistantHook => {
     if (recognitionRef.current && !isListening) {
       try {
         recognitionRef.current.start();
-      } catch (error) {
-        console.error('Error starting speech recognition:', error);
+      } catch {
+        // Failed to start recognition
       }
     }
   }, [isListening]);

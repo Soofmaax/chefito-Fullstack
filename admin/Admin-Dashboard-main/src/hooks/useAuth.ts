@@ -57,7 +57,6 @@ export function useAuth() {
         .single();
       
       if (error) {
-        console.error('Error loading profile:', error);
         // Si le profil n'existe pas, on peut le créer
         if (error.code === 'PGRST116') {
           await createUserProfile(userId);
@@ -71,10 +70,8 @@ export function useAuth() {
       setIsAdmin(role === 'admin');
       
       if (role !== 'admin') {
-        console.warn('User is not an admin:', { userId, role });
       }
     } catch (error) {
-      console.error('Error checking admin role:', error);
       setIsAdmin(false);
       setProfile(null);
     }
@@ -97,8 +94,7 @@ export function useAuth() {
       
       setProfile(newProfile);
       setIsAdmin(false);
-    } catch (error) {
-      console.error('Error creating profile:', error);
+    } catch {
     }
   };
 
@@ -118,7 +114,6 @@ export function useAuth() {
       
       return data;
     } catch (error: any) {
-      console.error('Sign in error:', error);
       throw new Error(error.message || 'Failed to sign in');
     }
   };
@@ -133,7 +128,6 @@ export function useAuth() {
       setIsAdmin(false);
       toast.success('Signed out successfully');
     } catch (error: any) {
-      console.error('Sign out error:', error);
       toast.error('Failed to sign out');
       throw error;
     }
@@ -157,7 +151,6 @@ export function useAuth() {
       
       toast.success('User promoted to admin');
     } catch (error: any) {
-      console.error('Error making user admin:', error);
       toast.error('Failed to promote user to admin');
       throw error;
     }

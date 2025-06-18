@@ -9,7 +9,6 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
       .then((registration) => {
-        console.log('SW registered: ', registration);
         
         // Check for updates
         registration.addEventListener('updatefound', () => {
@@ -45,8 +44,7 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
           }
         });
       })
-      .catch((registrationError) => {
-        console.log('SW registration failed: ', registrationError);
+      .catch(() => {
       });
   });
 }
@@ -63,8 +61,7 @@ if (process.env.NODE_ENV === 'production') {
       getLCP(trackWebVitals);
       getTTFB(trackWebVitals);
     });
-  }).catch((error) => {
-    console.warn('Failed to load web-vitals:', error);
+  }).catch(() => {
   });
 }
 
@@ -73,8 +70,7 @@ if (process.env.NODE_ENV === 'development') {
   // Load axe-core for accessibility testing in development
   import('@axe-core/react').then((axe) => {
     axe.default(React, ReactDOMClient, 1000);
-  }).catch((error) => {
-    console.warn('Failed to load axe-core:', error);
+  }).catch(() => {
   });
 }
 

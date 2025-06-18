@@ -119,7 +119,6 @@ const SubmitRecipePage: React.FC = () => {
       // Simulation d'envoi de données
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      console.log('Recipe submitted:', data);
       setSubmitSuccess(true);
       
       // Redirection après succès
@@ -127,8 +126,8 @@ const SubmitRecipePage: React.FC = () => {
         navigate('/recipes');
       }, 2000);
       
-    } catch (error) {
-      console.error('Error submitting recipe:', error);
+    } catch {
+      // Handle submission error
     } finally {
       setIsSubmitting(false);
     }
